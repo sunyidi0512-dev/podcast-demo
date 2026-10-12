@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>资讯自选 · Tiger AI Radio</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="preview-stage">
+      <section class="screen" aria-label="资讯自选播客">
+        <div class="layer layer--page-base">
+          <img src="./assets/bg资讯自选-播客.png" alt="资讯自选页面" />
+        </div>
+        <div class="layer layer--page-content" aria-hidden="true">
+          <img src="./assets/bg资讯自选-播客.png" alt="" />
+        </div>
+        <div class="layer layer--compact-content" aria-hidden="true">
+          <img src="./assets/compact-content-reference.png?v=2" alt="" />
+        </div>
+        <div class="layer layer--fixed-nav" aria-hidden="true">
+          <img src="./assets/bg资讯自选-播客.png" alt="" />
+        </div>
+        <button id="compactRadioPill" class="compact-radio-pill" type="button" aria-label="开始播放 Tiger AI Radio">
+          <img class="compact-pill-asset compact-pill-asset--radio" src="./assets/icon-AI-radio.png?v=2" alt="" />
+          <img class="compact-pill-asset compact-pill-asset--playing" src="./assets/icon-playing.png?v=2" alt="" />
+          <span class="compact-pulse" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        </button>
+        <section class="podcast-card state--idle" aria-label="Tiger AI Radio">
+          <div class="layer layer--podcast-base">
+            <img src="./assets/播客.png" alt="Tiger AI Radio Podcast" />
+          </div>
+          <div class="radio-icon-stack" aria-live="polite" aria-label="去听音">
+            <img class="radio-icon radio-icon--listen" src="./assets/icon-听音.png" alt="" />
+            <img class="radio-icon radio-icon--loading" src="./assets/icon-加载动画.png" alt="" />
+            <img class="radio-icon radio-icon--playing" src="./assets/icon-播放中.png" alt="" />
+            <span class="loading-visual" aria-hidden="true"></span>
+            <span class="pulse-visual" aria-hidden="true">
+              <i class="pulse-bar pulse-bar--one"></i><i class="pulse-bar pulse-bar--two"></i><i class="pulse-bar pulse-bar--three"></i><i class="pulse-bar pulse-bar--four"></i><i class="pulse-bar pulse-bar--five"></i>
+            </span>
+          </div>
+          <button id="listenButton" class="listen-button" type="button" aria-label="去听音" aria-pressed="false">
+            <img class="button-asset button-asset--play" src="./assets/按钮-播放.png" alt="Listen" />
+            <img class="button-asset button-asset--pause" src="./assets/按钮-暂停.png" alt="Pause" />
+          </button>
+        </section>
+        <aside id="miniPlayer" class="mini-player" aria-label="播客播放进度">
+          <div class="mini-progress-ring">
+            <div class="mini-default-progress" aria-hidden="true"></div>
+            <div class="mini-podcast-progress" aria-hidden="true"></div>
+            <div class="mini-cover" aria-hidden="true"><span></span></div>
+          </div>
+          <button id="miniToggle" class="mini-toggle" type="button" aria-label="暂停播放">
+            <span class="sr-only">暂停播放</span>
+          </button>
+        </aside>
+        <p id="radioStatus" class="sr-only" role="status" aria-live="polite">可收听 Tiger AI Radio</p>
+
+        <div id="playerDialog" class="player-dialog" aria-hidden="true">
+          <button id="dialogBackdrop" class="dialog-backdrop" type="button" tabindex="-1" aria-label="关闭播放详情"></button>
+          <section class="player-sheet" role="dialog" aria-modal="true" aria-labelledby="playerSheetTitle">
+            <img class="sheet-reference" src="./assets/player-sheet-popup-reference.png" alt="Tiger AI Radio 播放详情" />
+            <h2 id="playerSheetTitle" class="sr-only">Tiger AI Radio 播放详情</h2>
+            <button id="sheetClose" class="sheet-hit sheet-hit--close" type="button" aria-label="关闭播放详情"></button>
+            <button id="sheetPrevious" class="sheet-hit sheet-hit--previous" type="button" aria-label="上一期"></button>
+            <button id="sheetToggle" class="sheet-hit sheet-hit--toggle" type="button" aria-label="暂停播放"><span id="sheetToggleGlyph" class="sr-only">暂停播放</span></button>
+            <button id="sheetNext" class="sheet-hit sheet-hit--next" type="button" aria-label="下一期"></button>
+            <span id="sheetProgress" class="sr-only"></span><time id="sheetTime" class="sr-only">00:00 / 08:26</time>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
