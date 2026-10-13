@@ -208,3 +208,6 @@ listenButton.addEventListener('click', () => window.setTimeout(() => window.clea
 
 // Automatic compacting is disabled; compacting happens only on the second Listen tap.
 scheduleCompact = () => {}
+
+// Safety net: cancel any legacy compact timer; only the second Listen tap may compact.
+window.setInterval(() => window.clearTimeout(compactTimer), 100)
