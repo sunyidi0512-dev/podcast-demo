@@ -205,3 +205,6 @@ listenButton.addEventListener('click', event => {
 }, true)
 // Cancel the legacy 10-second auto-collapse timer after playback starts.
 listenButton.addEventListener('click', () => window.setTimeout(() => window.clearTimeout(compactTimer), 1200))
+
+// Automatic compacting is disabled; compacting happens only on the second Listen tap.
+scheduleCompact = () => {}
