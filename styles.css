@@ -106,3 +106,6 @@ body { min-width: 375px; margin: 0; background: #1d1d1d; font-family: Arial, san
 @keyframes pulse-five { 0%,100% { transform:scaleY(.72) } 32% { transform:scaleY(1.02) } 58% { transform:scaleY(.6) } 85% { transform:scaleY(.9) } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 @media (max-width: 440px) { .preview-stage { padding: 0; place-items: start center; } .screen { box-shadow: none; } }
+
+/* Keep the yellow playback arc at a 2px stroke. */
+.mini-podcast-progress { -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px)); mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px)); }
