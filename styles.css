@@ -113,3 +113,6 @@ body { min-width: 375px; margin: 0; background: #1d1d1d; font-family: Arial, san
 /* Keep the canvas centered and cover any fractional-pixel seam. */
 @media (max-width: 440px) { .preview-stage { padding: 0; place-items: center; } }
 .layer--page-base img, .layer--page-content img, .layer--fixed-nav img, .layer--compact-content img { width: calc(100% + 6px); }
+
+/* Keep the floating player clickable above its cover art. */
+.mini-toggle { z-index: 3; }
