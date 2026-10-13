@@ -221,3 +221,22 @@ manualListenButton.addEventListener('click', () => {
   else if (state === 'playing') collapsePodcastCard()
   else resumeRadio()
 })
+
+// Final Listen flow: play → pause → second Listen resumes and compacts.
+const twiceListenButton = manualListenButton.cloneNode(true)
+manualListenButton.replaceWith(twiceListenButton)
+let listenActivationCount = 0
+twiceListenButton.addEventListener('click', () => {
+  if (state === 'idle') {
+    listenActivationCount = 1
+    startRadio()
+  } else if (state === 'loading') {
+    resetRadio()
+  } else if (state === 'playing') {
+    pauseRadio()
+  } else {
+    listenActivationCount += 1
+    resumeRadio()
+    if (listenActivationCount >= 2) collapsePodcastCard()
+  }
+})
