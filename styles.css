@@ -116,3 +116,9 @@ body { min-width: 375px; margin: 0; background: #1d1d1d; font-family: Arial, san
 
 /* Keep the floating player clickable above its cover art. */
 .mini-toggle { z-index: 3; }
+
+/* Full-width sheet, fade-in shade, and bottom spring motion. */
+.player-dialog { top: 0; right: -6px; bottom: 0; left: 0; }
+.dialog-backdrop { opacity: 0; transition: opacity 180ms ease; }
+.player-dialog.is-open .dialog-backdrop { opacity: 1; }
+.player-sheet { width: 100%; transition: transform 420ms cubic-bezier(.22,1.18,.36,1); }
