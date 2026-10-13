@@ -195,3 +195,13 @@ miniToggle.addEventListener('click', () => { playerSheetOpenedAt = performance.n
 dialogBackdrop.addEventListener('click', event => {
   if (performance.now() - playerSheetOpenedAt < 650) event.stopImmediatePropagation()
 }, true)
+
+// Manual compact trigger: second Listen tap collapses the playing card.
+listenButton.addEventListener('click', event => {
+  if (state === 'playing') {
+    event.stopImmediatePropagation()
+    collapsePodcastCard()
+  }
+}, true)
+// Cancel the legacy 10-second auto-collapse timer after playback starts.
+listenButton.addEventListener('click', () => window.setTimeout(() => window.clearTimeout(compactTimer), 1200))
