@@ -240,3 +240,22 @@ twiceListenButton.addEventListener('click', () => {
     if (listenActivationCount >= 2) collapsePodcastCard()
   }
 })
+
+// Capture every Listen click before legacy handlers so the state flow is deterministic.
+let capturedListenCount = 0
+document.addEventListener('click', event => {
+  if (!event.target.closest('#listenButton')) return
+  event.stopImmediatePropagation()
+  if (state === 'idle') {
+    capturedListenCount = 1
+    startRadio()
+  } else if (state === 'loading') {
+    resetRadio()
+  } else if (state === 'playing') {
+    pauseRadio()
+  } else {
+    capturedListenCount += 1
+    resumeRadio()
+    if (capturedListenCount >= 2) collapsePodcastCard()
+  }
+}, true)
