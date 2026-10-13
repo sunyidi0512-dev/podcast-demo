@@ -188,3 +188,10 @@ sheetClose.addEventListener('click', closePlayerDialog)
 sheetPrevious.addEventListener('click', playAdjacentEpisode)
 sheetNext.addEventListener('click', playAdjacentEpisode)
 compactRadioPill.addEventListener('click', toggleCompactRadio)
+
+// Keep the player sheet open when the floating player is tapped.
+let playerSheetOpenedAt = 0
+miniToggle.addEventListener('click', () => { playerSheetOpenedAt = performance.now() }, true)
+dialogBackdrop.addEventListener('click', event => {
+  if (performance.now() - playerSheetOpenedAt < 650) event.stopImmediatePropagation()
+}, true)
