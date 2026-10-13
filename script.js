@@ -211,3 +211,13 @@ scheduleCompact = () => {}
 
 // Safety net: cancel any legacy compact timer; only the second Listen tap may compact.
 window.setInterval(() => window.clearTimeout(compactTimer), 100)
+
+// Replace the legacy Listen handler with the two-tap play / compact flow.
+const manualListenButton = listenButton.cloneNode(true)
+listenButton.replaceWith(manualListenButton)
+manualListenButton.addEventListener('click', () => {
+  if (state === 'idle') startRadio()
+  else if (state === 'loading') resetRadio()
+  else if (state === 'playing') collapsePodcastCard()
+  else resumeRadio()
+})
